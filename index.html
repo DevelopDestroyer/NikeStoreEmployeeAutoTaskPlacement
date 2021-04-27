@@ -1,0 +1,1727 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.table2excel.js"></script>
+        <style>
+            table {
+                width: 100%;
+                border: 1px solid #444444;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #444444;
+                padding: 1px;
+            }
+        </style>
+        <title>나이키 매장 포지션 자동배치 시스템</title>
+    </head>
+    <body>
+    <h3>나이키 매장 포지션 자동배치 시스템</h3>
+    <p style="color: red;">본 프로그램은 크롬사용을 권장함</p>
+    <h4>0. 팀원 워킹타임 정보</h4>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+        <tr>
+            <th>이름</th>
+            <!--th>10:00~10:30</th-->
+            <th>10:30</th>
+            <th>11:00</th>
+            <th>11:30</th>
+            <th>12:00</th>
+            <th>12:30</th>
+            <th>13:00</th>
+            <th>13:30</th>
+            <th>14:00</th>
+            <th>14:30</th>
+            <th>15:00</th>
+            <th>15:30</th>
+            <th>16:00</th>
+            <th>16:30</th>
+            <th>17:00</th>
+            <th>17:30</th>
+            <th>18:00</th>
+            <th>18:30</th>
+            <th>19:00</th>
+            <th>19:30</th>
+            <th>20:00</th>
+            <th>20:30</th>
+            <th>21:00</th>
+            <th>21:30</th>
+        </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+        <tbody>
+        <tr>
+            <th>
+                <b>1번</b> <input type="text" name="person1Name" value="김한영"/>
+                <br/><button onclick="exceptionManReq(1)">M</button><button onclick="exceptionWomanReq(1)">W</button>
+                <button onclick="autoCheckAReq(1)">A</button><button onclick="autoCheckCReq(1)">C</button><button onclick="autoCheckC1Req(1)">C1</button><button onclick="autoCheckC2Req(1)">C2</button><button onclick="autoCheckBReq(1)">B</button><button onclick="exceptionNoneReq(1)">X</button>
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+            <th><input type="checkbox" name="person1Time" value="N" ></th>
+        </tr>
+        <tr>
+            <th><b>2번</b> <input type="text" name="person1Name" value="김태경"/>
+                <br/><button onclick="exceptionManReq(2)">M</button><button onclick="exceptionWomanReq(2)">W</button>
+                <button onclick="autoCheckAReq(2)">A</button><button onclick="autoCheckCReq(2)">C</button><button onclick="autoCheckC1Req(2)">C1</button><button onclick="autoCheckC2Req(2)">C2</button><button onclick="autoCheckBReq(2)">B</button><button onclick="exceptionNoneReq(2)">X</button>
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+        </tr>
+        <tr>
+            <th><b>3번</b> <input type="text" name="person1Name" value="이헌철"/>
+                <br/><button onclick="exceptionManReq(3)">M</button><button onclick="exceptionWomanReq(3)">W</button>
+                <button onclick="autoCheckAReq(3)">A</button><button onclick="autoCheckCReq(3)">C</button><button onclick="autoCheckC1Req(3)">C1</button><button onclick="autoCheckC2Req(3)">C2</button><button onclick="autoCheckBReq(3)">B</button><button onclick="exceptionNoneReq(3)">X</button>
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+            <th><input type="checkbox" name="person1Time" value="N" checked></th>
+        </tr>
+        <tr>
+            <th><b>4번</b> <input type="text" name="person1Name" value="이태규"/>
+                <br/><button onclick="exceptionManReq(4)">M</button><button onclick="exceptionWomanReq(4)">W</button>
+                <button onclick="autoCheckAReq(4)">A</button><button onclick="autoCheckCReq(4)">C</button><button onclick="autoCheckC1Req(4)">C1</button><button onclick="autoCheckC2Req(4)">C2</button><button onclick="autoCheckBReq(4)">B</button><button onclick="exceptionNoneReq(4)">X</button>
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>5번</b> <input type="text" name="person1Name" value="임지윤"/>
+                <br/><button onclick="exceptionManReq(5)">M</button><button onclick="exceptionWomanReq(5)">W</button>
+                <button onclick="autoCheckAReq(5)">A</button><button onclick="autoCheckCReq(5)">C</button><button onclick="autoCheckC1Req(5)">C1</button><button onclick="autoCheckC2Req(5)">C2</button><button onclick="autoCheckBReq(5)">B</button><button onclick="exceptionNoneReq(5)">X</button>
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>6번</b> <input type="text" name="person1Name" value="박종웅"/>
+                <br/><button onclick="exceptionManReq(6)">M</button><button onclick="exceptionWomanReq(6)">W</button>
+                <button onclick="autoCheckAReq(6)">A</button><button onclick="autoCheckCReq(6)">C</button><button onclick="autoCheckC1Req(6)">C1</button><button onclick="autoCheckC2Req(6)">C2</button><button onclick="autoCheckBReq(6)">B</button><button onclick="exceptionNoneReq(6)">X</button>
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>7번</b> <input type="text" name="person1Name" value="박정환"/>
+                <br/><button onclick="exceptionManReq(7)">M</button><button onclick="exceptionWomanReq(7)">W</button>
+                <button onclick="autoCheckAReq(7)">A</button><button onclick="autoCheckCReq(7)">C</button><button onclick="autoCheckC1Req(7)">C1</button><button onclick="autoCheckC2Req(7)">C2</button><button onclick="autoCheckBReq(7)">B</button><button onclick="exceptionNoneReq(7)">X</button>
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>8번</b> <input type="text" name="person1Name" value="신명윤"/>
+                <br/><button onclick="exceptionManReq(8)">M</button><button onclick="exceptionWomanReq(8)">W</button>
+                <button onclick="autoCheckAReq(8)">A</button><button onclick="autoCheckCReq(8)">C</button><button onclick="autoCheckC1Req(8)">C1</button><button onclick="autoCheckC2Req(8)">C2</button><button onclick="autoCheckBReq(8)">B</button><button onclick="exceptionNoneReq(8)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>9번</b> <input type="text" name="person1Name" value="신상교"/>
+                <br/><button onclick="exceptionManReq(9)">M</button><button onclick="exceptionWomanReq(9)">W</button>
+                <button onclick="autoCheckAReq(9)">A</button><button onclick="autoCheckCReq(9)">C</button><button onclick="autoCheckC1Req(9)">C1</button><button onclick="autoCheckC2Req(9)">C2</button><button onclick="autoCheckBReq(9)">B</button><button onclick="exceptionNoneReq(9)">X</button>
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>10번</b> <input type="text" name="person1Name" value="윤대한"/>
+                <br/><button onclick="exceptionManReq(10)">M</button><button onclick="exceptionWomanReq(10)">W</button>
+                <button onclick="autoCheckAReq(10)">A</button><button onclick="autoCheckCReq(10)">C</button><button onclick="autoCheckC1Req(10)">C1</button><button onclick="autoCheckC2Req(10)">C2</button><button onclick="autoCheckBReq(10)">B</button><button onclick="exceptionNoneReq(10)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>11번</b> <input type="text" name="person1Name" value="강혜원"/>
+                <br/><button onclick="exceptionManReq(11)">M</button><button onclick="exceptionWomanReq(11)">W</button>
+                <button onclick="autoCheckAReq(11)">A</button><button onclick="autoCheckCReq(11)">C</button><button onclick="autoCheckC1Req(11)">C1</button><button onclick="autoCheckC2Req(11)">C2</button><button onclick="autoCheckBReq(11)">B</button><button onclick="exceptionNoneReq(11)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>12번</b> <input type="text" name="person1Name" value="김예은"/>
+                <br/><button onclick="exceptionManReq(12)">M</button><button onclick="exceptionWomanReq(12)">W</button>
+                <button onclick="autoCheckAReq(12)">A</button><button onclick="autoCheckCReq(12)">C</button><button onclick="autoCheckC1Req(12)">C1</button><button onclick="autoCheckC2Req(12)">C2</button><button onclick="autoCheckBReq(12)">B</button><button onclick="exceptionNoneReq(12)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>13번</b> <input type="text" name="person1Name" value="이창범"/>
+                <br/><button onclick="exceptionManReq(13)">M</button><button onclick="exceptionWomanReq(13)">W</button>
+                <button onclick="autoCheckAReq(13)">A</button><button onclick="autoCheckCReq(13)">C</button><button onclick="autoCheckC1Req(13)">C1</button><button onclick="autoCheckC2Req(13)">C2</button><button onclick="autoCheckBReq(13)">B</button><button onclick="exceptionNoneReq(13)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>14번</b> <input type="text" name="person1Name" value="이태림"/>
+                <br/><button onclick="exceptionManReq(14)">M</button><button onclick="exceptionWomanReq(14)">W</button>
+                <button onclick="autoCheckAReq(14)">A</button><button onclick="autoCheckCReq(14)">C</button><button onclick="autoCheckC1Req(14)">C1</button><button onclick="autoCheckC2Req(14)">C2</button><button onclick="autoCheckBReq(14)">B</button><button onclick="exceptionNoneReq(14)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>15번</b> <input type="text" name="person1Name" value="박동겸"/>
+                <br/><button onclick="exceptionManReq(15)">M</button><button onclick="exceptionWomanReq(15)">W</button>
+                <button onclick="autoCheckAReq(15)">A</button><button onclick="autoCheckCReq(15)">C</button><button onclick="autoCheckC1Req(15)">C1</button><button onclick="autoCheckC2Req(15)">C2</button><button onclick="autoCheckBReq(15)">B</button><button onclick="exceptionNoneReq(15)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>16번</b> <input type="text" name="person1Name" value="팀원16"/>
+                <br/><button onclick="exceptionManReq(16)">M</button><button onclick="exceptionWomanReq(16)">W</button>
+                <button onclick="autoCheckAReq(16)">A</button><button onclick="autoCheckCReq(16)">C</button><button onclick="autoCheckC1Req(16)">C1</button><button onclick="autoCheckC2Req(16)">C2</button><button onclick="autoCheckBReq(16)">B</button><button onclick="exceptionNoneReq(16)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>17번</b> <input type="text" name="person1Name" value="황주리"/>
+                <br/><button onclick="exceptionManReq(17)">M</button><button onclick="exceptionWomanReq(17)">W</button>
+                <button onclick="autoCheckAReq(17)">A</button><button onclick="autoCheckCReq(17)">C</button><button onclick="autoCheckC1Req(17)">C1</button><button onclick="autoCheckC2Req(17)">C2</button><button onclick="autoCheckBReq(17)">B</button><button onclick="exceptionNoneReq(17)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>18번</b> <input type="text" name="person1Name" value="지예진"/>
+                <br/><button onclick="exceptionManReq(18)">M</button><button onclick="exceptionWomanReq(18)">W</button>
+                <button onclick="autoCheckAReq(18)">A</button><button onclick="autoCheckCReq(18)">C</button><button onclick="autoCheckC1Req(18)">C1</button><button onclick="autoCheckC2Req(18)">C2</button><button onclick="autoCheckBReq(18)">B</button><button onclick="exceptionNoneReq(18)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>19번</b> <input type="text" name="person1Name" value="조아라"/>
+                <br/><button onclick="exceptionManReq(19)">M</button><button onclick="exceptionWomanReq(19)">W</button>
+                <button onclick="autoCheckAReq(19)">A</button><button onclick="autoCheckCReq(19)">C</button><button onclick="autoCheckC1Req(19)">C1</button><button onclick="autoCheckC2Req(19)">C2</button><button onclick="autoCheckBReq(19)">B</button><button onclick="exceptionNoneReq(19)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>20번</b> <input type="text" name="person1Name" value="팀원20"/>
+                <br/><button onclick="exceptionManReq(20)">M</button><button onclick="exceptionWomanReq(20)">W</button>
+                <button onclick="autoCheckAReq(20)">A</button><button onclick="autoCheckCReq(20)">C</button><button onclick="autoCheckC1Req(20)">C1</button><button onclick="autoCheckC2Req(20)">C2</button><button onclick="autoCheckBReq(20)">B</button><button onclick="exceptionNoneReq(20)">X</button>
+
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        <tr>
+            <th><b>21번</b> <input type="text" name="person1Name" value="팀원21"/>
+                <br/><button onclick="exceptionManReq(21)">M</button><button onclick="exceptionWomanReq(21)">W</button>
+                <button onclick="autoCheckAReq(21)">A</button><button onclick="autoCheckCReq(21)">C</button><button onclick="autoCheckC1Req(21)">C1</button><button onclick="autoCheckC2Req(21)">C2</button><button onclick="autoCheckBReq(21)">B</button><button onclick="exceptionNoneReq(21)">X</button>
+            </th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+            <th><input type="checkbox" name="person1Time" value="N"></th>
+        </tr>
+        </tbody>
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <th style="background-color: #FF8C00">1. 엑셀로 가져오기</th>
+            <th style="background-color: #FF8C00">2. 간편체크</th>
+            <th style="background-color: #FF8C00">3. 워킹타임 일괄배정</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="file" onchange="readExcel()"><br>
+                엑셀파일을 첨부하고 분석된 시트를 선택하세요.<br/>
+                <div id="sheetInfo"></div>
+            </td>
+            <td>
+                <button id="allCheck" value="1" >전체 체크하기</button>
+                <button id="allUnCheck" value="1" >전체 체크해제</button>
+                <br/>
+                <br/>
+                <input type="number" value="1" id="autoCheckInput"/>번 팀원에게 일괄적용
+                <button id="autoCheckA" value="1" >A</button>
+                <button id="autoCheckC" value="1" >C</button>
+                <button id="autoCheckC1" value="1" >C1</button>
+                <button id="autoCheckC2" value="1" >C2</button>
+                <button id="autoCheckB" value="1" >B</button>
+                <button id="autoUnCheck" value="1" >체크해제</button>
+                <br/>
+                * 설명<br/>
+                　- [A] 10:30~19:00<br/>
+                　- [C] 10:30~20:00<br/>
+                　- [C1] 11:00~20:30<br/>
+                　- [C2] 11:30~21:00<br/>
+                　- [B] 13:00~21:30<br/>
+
+            </td>
+            <td>
+                <input type="number" value="1" id="exceptionInput"/>번 팀원에게 일괄적용
+                <button id="exceptionMan" value="1" >남성의류</button>
+                <button id="exceptionWoman" value="1" >여성의류</button>
+                <button id="exceptionNone" value="1" >일괄적용 해제</button>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <hr/>
+    <h4>4. 입력 완료</h4>
+    <button id="personTimeOK" value="1" style="width:500px; height:50px;">팀원 근무시간대 입력 완료</button>
+
+    <br/>
+    <br/>
+    <br>
+    <br>
+    <hr/>
+    <h4>5. 랜덤배치 결과</h4>
+    <div id="resultTable">
+        * 4. 입력 완료의 [팀원 근무시간대 입력 완료] 버튼을 눌러주세요<br/>
+        * 배치가 마음에 만들면 버튼을 여러번 눌러서 재배치 할 수 있습니다.<br/>
+    </div>
+    <br/>
+    <div id="resultException">
+
+    </div>
+    <br/>
+    <button onclick="ReportToExcelConverter()">엑셀로 다운로드</button> (배치가 완료된 후 사용하세요)
+    <br/>
+    <br/>
+    <br/>
+    <hr/>
+    <h4>6. 정책 (계산 알고리즘)</h4>
+    <b>(1)</b> 체크가 안된 시간은 배정에 반영하지 않습니다. <br/>
+    <b>(2)</b> 남성의류, 여성의류 일괄반영으로 선택된 팀원은 무조건 체크된 모든 시간에 대해 해당 포지션으로 배정됩니다.<br/>
+    <b>(3)</b> 포지션은 총 4가지, 피팅룸, 여성의류, 남성의류, 엠포스결제로 구분됩니다.<br/>
+    <b>(4)</b> 시간파트는 크게 세가지 10:30~12:00(이하 오전반), 12:00~20:00(이하 오후반, <b>1시간 단위로 나누어 배정</b>) 20:00~21:30(이하 저녁반) 세 파트로 나누어집니다. <br/>
+    <b>(5)</b> 팀원들은 남성의류, 여성의류 둘중하나로 사용자에게 직접 선택되어야 합니다.<br/>
+    <b>(6)</b> 피팅룸은 오전반, 저녁반에서 1명을 차출하며 오후반에서 2명을 차출합니다. 엠포스는 오후반만 배정하며 여성의류, 남성의류에서 각각 1명씩 차출합니다.<br/>
+    <b>(7)</b> [1] 피팅룸 1차 배정규칙 : 오전반은 오후반 시작시간에 피팅룸/엠포스에 배정돼지 않은 인원, 오후반은 1시간 전후로 피팅룸/엠포스에 배정돼지 않은 인원, 저녁반은 오후마지막순번으로 피팅룸/엠포스에 배정되지 않은 인원을 선정합니다.<br/>
+    <b>(8)</b> [2] 엠포스 1차 배정규칙 : 1시간 전후로 피팅룸/엠포스에 배정돼지 않은 인원을 대상으로 합니다.<br/>
+    <b>(9)</b> 피팅룸/엠포스 2차 배정규칙 : [1], [2]의 규칙으로부터 스케줄상 불가능할 경우 대상시간 전후로 피팅룸/엠포스에 배정되었다 하도라도 시간이 비어있으면 배정해줍니다. 이러한 상황이 발생하면 배정완료 테이블 하단에 예외사항으로 입력되오니 참고하세요.<br/>
+    <b>(10)</b> 산출물은 엑셀로 다운로드 받아 볼 수 있습니다.<br/>
+    <br/>
+    <hr/>
+    <br/>
+    <h4>7. 추후 개선안</h4>
+    (1) 여러번 돌린 후 가장 예외사항이 없는 방법 채택 방식 추가<br/>
+    (2) 리소스 적을 시 더 느슨한 방식 적용(ex. 엠포스 남성의류 차출 불가 시 여성의류에서 2명 반영)<br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <hr/>
+    <center>© 2021, Taeho Lee. All right reserved</center>
+    </body>
+
+    <script type="text/javascript">
+        let PEOPLE_SIZE = 21;
+        let TIME_SIZE = 23;
+        let EXCEPTION_MAN = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+        let EXCEPTION_WOMAN = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+        let ALTORITHM_CNT = 0;
+        let ERROR_MSG = "";
+        let ALTORITHM_DEPTH = 10000;
+
+        let input_excel_sheet_name_list = [];
+        let input_excel_object_list = [];
+
+
+        window.onload = function(){
+                let personTimeArr = document.getElementsByName('person1Time');
+                for(let i = 0; i < personTimeArr.length; i++){
+                    personTimeArr[i].checked = false;
+                }
+
+            let personNameArr = document.getElementsByName('person1Name');
+            for(let i = 0; i < personNameArr.length; i++){
+                personNameArr[i].value = '';
+            }
+
+                /*
+                for(let i = 0; i < PEOPLE_SIZE; i++){
+                    if(i % 2 == 0){
+                        exceptionManReq(i+1);
+                    }
+                    else{
+                        exceptionWomanReq(i+1);
+                    }
+
+                    if(i<7){
+                        autoCheckAReq(i+1);
+                    }
+                    else if(i<10){
+                        autoCheckCReq(i+1);
+                    }
+                    else if(i<12){
+                        autoCheckC1Req(i+1);
+                    }
+                    else if(i<13){
+                        autoCheckC2Req(i+1);
+                    }
+                    else{
+                        autoCheckBReq(i+1);
+                    }
+                }
+
+                 */
+        };
+
+        function cleanCheck(){
+            let personTimeArr = document.getElementsByName('person1Time');
+            for(let i = 0; i < personTimeArr.length; i++){
+                personTimeArr[i].checked = false;
+            }
+        }
+        function cleanName(){
+            let personNameArr = document.getElementsByName('person1Name');
+            for(let i = 0; i < personNameArr.length; i++){
+                personNameArr[i].value = '';
+            }
+        }
+
+        function readExcel() {
+            let input = event.target;
+            let reader = new FileReader();
+            reader.onload = function () {
+                let data = reader.result;
+                let workBook = XLSX.read(data, { type: 'binary' });
+                workBook.SheetNames.forEach(function (sheetName) {
+                    console.log('SheetName: ' + sheetName);
+                    input_excel_sheet_name_list.push(sheetName);
+                    let rows = XLSX.utils.sheet_to_json(workBook.Sheets[sheetName]);
+                    input_excel_object_list.push(rows);
+                    console.log(JSON.stringify(rows));
+                    drawSheetList();
+
+                })
+            };
+            reader.readAsBinaryString(input.files[0]);
+        }
+
+        function drawSheetList(){
+            let htmlResult = "<ul>";
+            for(let i = 0; i < input_excel_sheet_name_list.length; i++){
+                htmlResult += "<li onclick='excelObjectReq(" + i + ")'><a href='#'>" + input_excel_sheet_name_list[i] + "</a></li>";
+            }
+            htmlResult += "<ul>";
+            document.getElementById("sheetInfo").innerHTML = htmlResult;
+        }
+
+        function excelObjectReq(n){
+            cleanCheck();
+            cleanName();
+
+            let detectedZone = false;
+            let personName = document.getElementsByName("person1Name");
+            let timeTable = document.getElementsByName('person1Time');
+            let personNameIdx = 0;
+            console.log(input_excel_object_list[n]);
+            for(let i = 0; i < input_excel_object_list[n].length; i++){
+                if(detectedZone == true){
+                    if("ZONE 2".indexOf(input_excel_object_list[n][i].__EMPTY) !== -1){
+                        for(let j = personNameIdx; j < PEOPLE_SIZE; j++){
+                            personName[j].value = "";
+                        }
+                        break;
+                    }
+                    personName[personNameIdx].value = input_excel_object_list[n][i].__EMPTY;
+
+                    if(input_excel_object_list[n][i].__EMPTY_51 != null && input_excel_object_list[n][i].__EMPTY_51 != 'M'){
+                        timeTable[0 + TIME_SIZE * personNameIdx].checked = true; //10시30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_53 != null && input_excel_object_list[n][i].__EMPTY_53 != 'M'){
+                        timeTable[1 + TIME_SIZE * personNameIdx].checked = true; //11시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_55 != null && input_excel_object_list[n][i].__EMPTY_55 != 'M'){
+                        timeTable[2 + TIME_SIZE * personNameIdx].checked = true; //11시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_58 != null && input_excel_object_list[n][i].__EMPTY_58 != 'M'){
+                        timeTable[3 + TIME_SIZE * personNameIdx].checked = true; //12시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_60 != null && input_excel_object_list[n][i].__EMPTY_60 != 'M'){
+                        timeTable[4 + TIME_SIZE * personNameIdx].checked = true; //12시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_62 != null && input_excel_object_list[n][i].__EMPTY_62 != 'M'){
+                        timeTable[5 + TIME_SIZE * personNameIdx].checked = true; //13시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_64 != null && input_excel_object_list[n][i].__EMPTY_64 != 'M'){
+                        timeTable[6 + TIME_SIZE * personNameIdx].checked = true; //13시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_66 != null && input_excel_object_list[n][i].__EMPTY_66 != 'M'){
+                        timeTable[7 + TIME_SIZE * personNameIdx].checked = true; //14시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_68 != null && input_excel_object_list[n][i].__EMPTY_68 != 'M'){
+                        timeTable[8 + TIME_SIZE * personNameIdx].checked = true; //14시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_70 != null && input_excel_object_list[n][i].__EMPTY_70 != 'M'){
+                        timeTable[9 + TIME_SIZE * personNameIdx].checked = true; //15시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_72 != null && input_excel_object_list[n][i].__EMPTY_72 != 'M'){
+                        timeTable[10 + TIME_SIZE * personNameIdx].checked = true; //15시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_74 != null && input_excel_object_list[n][i].__EMPTY_74 != 'M'){
+                        timeTable[11 + TIME_SIZE * personNameIdx].checked = true; //16시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_76 != null && input_excel_object_list[n][i].__EMPTY_76 != 'M'){
+                        timeTable[12 + TIME_SIZE * personNameIdx].checked = true; //16시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_78 != null && input_excel_object_list[n][i].__EMPTY_78 != 'M'){
+                        timeTable[13 + TIME_SIZE * personNameIdx].checked = true; //17시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_80 != null && input_excel_object_list[n][i].__EMPTY_80 != 'M'){
+                        timeTable[14 + TIME_SIZE * personNameIdx].checked = true; //17시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_83 != null && input_excel_object_list[n][i].__EMPTY_83 != 'M'){
+                        timeTable[15 + TIME_SIZE * personNameIdx].checked = true; //18시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_85 != null && input_excel_object_list[n][i].__EMPTY_85 != 'M'){
+                        timeTable[16 + TIME_SIZE * personNameIdx].checked = true; //18시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_87 != null && input_excel_object_list[n][i].__EMPTY_87 != 'M'){
+                        timeTable[17 + TIME_SIZE * personNameIdx].checked = true; //19시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_89 != null && input_excel_object_list[n][i].__EMPTY_89 != 'M'){
+                        timeTable[18 + TIME_SIZE * personNameIdx].checked = true; //19시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_91 != null && input_excel_object_list[n][i].__EMPTY_91 != 'M'){
+                        timeTable[19 + TIME_SIZE * personNameIdx].checked = true; //20시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_93 != null && input_excel_object_list[n][i].__EMPTY_93 != 'M'){
+                        timeTable[20 + TIME_SIZE * personNameIdx].checked = true; //20시 30분
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_95 != null && input_excel_object_list[n][i].__EMPTY_95 != 'M'){
+                        timeTable[21 + TIME_SIZE * personNameIdx].checked = true; //21시
+                    }
+                    if(input_excel_object_list[n][i].__EMPTY_97 != null && input_excel_object_list[n][i].__EMPTY_97 != 'M'){
+                        timeTable[22 + TIME_SIZE * personNameIdx].checked = true; //21시 30분
+                    }
+                    personNameIdx++;
+                }
+                if("ZONE 1".indexOf(input_excel_object_list[n][i].__EMPTY) !== -1){
+                    detectedZone = true;
+                }
+            }
+        }
+
+        function ReportToExcelConverter() {
+            $("#resultMatch").table2excel({
+                exclude: ".noExl",
+                name: "Excel Document Name",
+                filename: "report" +'.xls', //확장자를 여기서 붙여줘야한다.
+                fileext: ".xls",
+                exclude_img: true,
+                exclude_links: true,
+                exclude_inputs: true });
+        };
+
+
+        function exceptionManReq(n){
+            document.getElementById('exceptionInput').value = n;
+            document.getElementById('exceptionMan').click();
+        }
+
+        function exceptionWomanReq(n){
+            document.getElementById('exceptionInput').value = n;
+            document.getElementById('exceptionWoman').click();
+        }
+
+        function exceptionNoneReq(n){
+            //document.getElementById('exceptionInput').value = n;
+            //document.getElementById('exceptionNone').click();
+            document.getElementById('autoCheckInput').value = n;
+            document.getElementById('autoUnCheck').click();
+        }
+
+        //exceptionMan
+        let exceptionManButton = document.getElementById('exceptionMan');
+        exceptionManButton.addEventListener('click', function(event) {
+            let target = document.getElementById('exceptionInput').value - 1;
+            EXCEPTION_MAN[target] = true;
+            EXCEPTION_WOMAN[target] = false;
+
+            let personNameArr = document.getElementsByName('person1Name');
+            personNameArr[target].style.backgroundColor = '#95D2FA';
+        });
+
+        let exceptionWomanButton = document.getElementById('exceptionWoman');
+        exceptionWomanButton.addEventListener('click', function(event) {
+            let target = document.getElementById('exceptionInput').value - 1;
+            EXCEPTION_MAN[target] = false;
+            EXCEPTION_WOMAN[target] = true;
+
+            let personNameArr = document.getElementsByName('person1Name');
+            personNameArr[target].style.backgroundColor = '#F86B6D';
+        });
+
+        let exceptionNoneButton = document.getElementById('exceptionNone');
+        exceptionNoneButton.addEventListener('click', function(event) {
+            let target = document.getElementById('exceptionInput').value - 1;
+            EXCEPTION_MAN[target] = false;
+            EXCEPTION_WOMAN[target] = false;
+
+            let personNameArr = document.getElementsByName('person1Name');
+            personNameArr[target].style.backgroundColor = '#FFFFFF';
+        });
+
+        function autoCheckAReq(n){
+            document.getElementById('autoCheckInput').value = n;
+            document.getElementById('autoCheckA').click();
+        }
+
+        function autoCheckCReq(n){
+            document.getElementById('autoCheckInput').value = n;
+            document.getElementById('autoCheckC').click();
+        }
+
+        function autoCheckC1Req(n){
+            document.getElementById('autoCheckInput').value = n;
+            document.getElementById('autoCheckC1').click();
+        }
+
+        function autoCheckC2Req(n){
+            document.getElementById('autoCheckInput').value = n;
+            document.getElementById('autoCheckC2').click();
+        }
+
+        function autoCheckBReq(n){
+            document.getElementById('autoCheckInput').value = n;
+            document.getElementById('autoCheckB').click();
+        }
+
+        let autoCheckAButton = document.getElementById('autoCheckA');
+        autoCheckAButton.addEventListener('click', function(event) {
+            let target = document.getElementById('autoCheckInput').value - 1;
+            let personTimeArr = document.getElementsByName('person1Time');
+            let startPoint = 0 + target * TIME_SIZE;
+            let endPoint = 22 + target * TIME_SIZE;
+            for(let i = startPoint; i <= endPoint; i++){
+                personTimeArr[i].checked = false;
+                if(i >= 0 + startPoint && i <= 16 + startPoint) //A 9:30~19:00
+                    personTimeArr[i].checked = true;
+            }
+        });
+
+        let autoCheckCButton = document.getElementById('autoCheckC');
+        autoCheckCButton.addEventListener('click', function(event) {
+            let target = document.getElementById('autoCheckInput').value - 1;
+            let personTimeArr = document.getElementsByName('person1Time');
+            let startPoint = 0 + target * TIME_SIZE;
+            let endPoint = 22 + target * TIME_SIZE;
+            for(let i = startPoint; i <= endPoint; i++){
+                personTimeArr[i].checked = false;
+                if(i >= 0 + startPoint && i <= 18 + startPoint) //A 9:30~19:00
+                    personTimeArr[i].checked = true;
+            }
+        });
+        //10:30 0
+        //11:30 2
+        //12:30 4
+        //13:30 6
+        //14:30 8
+        //15:30 10
+        //16:30 12
+        //17:30 14
+        //18:30 16
+        //19:30 18
+        //20:30 20
+        //21:30 22
+
+
+        /*
+A 9:30~19:00
+C 10:30~20:00
+C1 11:00~20:30
+C2 11:30~21:00
+B 12:00~21:30
+
+         */
+
+        let autoCheckC1Button = document.getElementById('autoCheckC1');
+        autoCheckC1Button.addEventListener('click', function(event) {
+            let target = document.getElementById('autoCheckInput').value - 1;
+            let personTimeArr = document.getElementsByName('person1Time');
+            let startPoint = 0 + target * TIME_SIZE;
+            let endPoint = 22 + target * TIME_SIZE;
+            for(let i = startPoint; i <= endPoint; i++){
+                personTimeArr[i].checked = false;
+                if(i >= 1 + startPoint && i <= 19 + startPoint) //A 9:30~19:00
+                    personTimeArr[i].checked = true;
+            }
+        });
+
+        let autoCheckC2Button = document.getElementById('autoCheckC2');
+        autoCheckC2Button.addEventListener('click', function(event) {
+            let target = document.getElementById('autoCheckInput').value - 1;
+            let personTimeArr = document.getElementsByName('person1Time');
+            let startPoint = 0 + target * TIME_SIZE;
+            let endPoint = 22 + target * TIME_SIZE;
+            for(let i = startPoint; i <= endPoint; i++){
+                personTimeArr[i].checked = false;
+                if(i >= 2 + startPoint && i <= 20 + startPoint) //A 9:30~19:00
+                    personTimeArr[i].checked = true;
+            }
+        });
+
+        let autoCheckBButton = document.getElementById('autoCheckB');
+        autoCheckBButton.addEventListener('click', function(event) {
+            let target = document.getElementById('autoCheckInput').value - 1;
+            let personTimeArr = document.getElementsByName('person1Time');
+            let startPoint = 0 + target * TIME_SIZE;
+            let endPoint = 22 + target * TIME_SIZE;
+            for(let i = startPoint; i <= endPoint; i++){
+                personTimeArr[i].checked = false;
+                if(i >= 5 + startPoint && i <= 21 + startPoint) //A 9:30~19:00
+                    personTimeArr[i].checked = true;
+            }
+        });
+
+        let autoCheckUnButton = document.getElementById('autoUnCheck');
+        autoCheckUnButton.addEventListener('click', function(event) {
+            let target = document.getElementById('autoCheckInput').value - 1;
+            let personTimeArr = document.getElementsByName('person1Time');
+            let startPoint = 0 + target * TIME_SIZE;
+            let endPoint = 22 + target * TIME_SIZE;
+            for(let i = startPoint; i <= endPoint; i++){
+                personTimeArr[i].checked = false;
+            }
+        });
+
+        let allCheckButton = document.getElementById('allCheck');
+        allCheckButton.addEventListener('click', function(event) {
+            let personTimeArr = document.getElementsByName('person1Time');
+            for(let i = 0; i < personTimeArr.length; i++){
+                personTimeArr[i].checked = true;
+            }
+        });
+        let allUnCheckButton = document.getElementById('allUnCheck');
+        allUnCheckButton.addEventListener('click', function(event) {
+            let personTimeArr = document.getElementsByName('person1Time');
+            for(let i = 0; i < personTimeArr.length; i++){
+                personTimeArr[i].checked = false;
+            }
+        });
+
+
+        function calculCore(){
+
+            let exceptionMsgHTML = "";
+            let teamPosition = [
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+            ];
+
+            let personTimeArr = document.getElementsByName('person1Time');
+            let personTimeCount = 0;
+
+            //계산용 배열, 체크박스 상태에 따른 초기화
+            for (let i = 0; i < PEOPLE_SIZE; i++) {
+                for (let j = 0; j < TIME_SIZE; j++) {
+                    if (personTimeArr[personTimeCount].checked == true) {
+                        teamPosition[i][j] = 'Y';
+                    }
+                    else{
+                        teamPosition[i][j] = 'N';
+                    }
+                    personTimeCount++;
+                }
+
+            }
+
+            /*
+             *  피팅룸 계산
+             */
+            //10:30, 11:00, 11:30, 12:00 고정파트 계산, 1명
+            let candidate = "";
+            let candidateCnt = 0;
+            for (let i = 0; i < PEOPLE_SIZE; i++) {
+                if(teamPosition[i][0] == 'Y' &&
+                    teamPosition[i][1] == 'Y' &&
+                    teamPosition[i][2] == 'Y'){
+                    candidate += i + ";";
+                    candidateCnt++;
+                }
+            }
+            if (candidateCnt > 0) {
+                candidate = candidate.substr(0, candidate.length - 1);
+            } else {
+                exceptionMsgHTML += "<li>피팅룸 10:30~12:00에 1시간 전후 피팅룸/엠포스 근무가 없었던 팀원이 존재하지 않아 일단 가능한 인원으로 채웠습니다.</li>";
+                for (let i = 0; i < PEOPLE_SIZE; i++) {
+                    if(teamPosition[i][0] == 'Y' ||
+                        teamPosition[i][1] == 'Y' ||
+                        teamPosition[i][2] == 'Y'){
+                        candidate += i + ";";
+                        candidateCnt++;
+                        if (candidateCnt > 0) {
+                            candidate = candidate.substr(0, candidate.length - 1);
+                        }
+                        else{
+                            ERROR_MSG = "[ERROR] 피팅룸 오전조 근무가능자 없음";
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            let candidateArr = candidate.split(";");
+            shuffle(candidateArr);
+
+            console.log("[DEBUG] 피팅룸 10:30 ~ 12:00 당첨자 -> " + candidateArr[0]);
+            for (let j = 0; j < 3; j++) { //타임블록 1~4까지 동시계산 필요
+                if(teamPosition[candidateArr[0]][j] == 'Y')
+                    teamPosition[candidateArr[0]][j] = "피팅룸";   //1명색출
+            }
+
+
+            //20:00, 20:30, 21:00 고정파트 계산, 1명
+            candidate = "";
+            candidateCnt = 0;
+            candidateArr = [];
+            for (let i = 0; i < PEOPLE_SIZE; i++) {
+                if(teamPosition[i][19] == 'Y' &&
+                    teamPosition[i][20] == 'Y' &&
+                    teamPosition[i][21] == 'Y' &&
+                    teamPosition[i][18] == 'Y' ){
+                    candidate += i + ";";
+                    candidateCnt++;
+                }
+            }
+            if (candidateCnt > 0) {
+                candidate = candidate.substr(0, candidate.length - 1);
+            } else {
+                exceptionMsgHTML += "<li>피팅룸 20:00~21:30에 1시간 전후 피팅룸/엠포스 근무가 없었던 팀원이 존재하지 않아 일단 가능한 인원으로 채웠습니다.</li>";
+                for (let i = 0; i < PEOPLE_SIZE; i++) {
+                    if(teamPosition[i][19] == 'Y' ||
+                        teamPosition[i][20] == 'Y' ||
+                        teamPosition[i][21] == 'Y' ||
+                        teamPosition[i][18] == 'Y' ){
+                        candidate += i + ";";
+                        candidateCnt++;
+                    }
+                }
+                if (candidateCnt > 0) {
+                    candidate = candidate.substr(0, candidate.length - 1);
+                }
+                else{
+                    ERROR_MSG = "[ERROR] 피팅룸 저녁조 근무가능자 없음";
+                    return false;
+                }
+
+            }
+
+            candidateArr = candidate.split(";");
+            shuffle(candidateArr);
+
+            console.log("[DEBUG] 피팅룸 20:00 ~ 21:30 당첨자 -> " + candidateArr[0]);
+            for (let j = 19; j < 23; j++) { //타임블록 1~4까지 동시계산 필요
+                if(teamPosition[candidateArr[0]][j] == 'Y')
+                    teamPosition[candidateArr[0]][j] = "피팅룸";   //1명색출
+            }
+
+            //12:00(4) ~ 20:00(19), 2명
+            for(let k = 3; k < 19; k=k+2){
+                candidate = "";
+                candidateCnt = 0;
+                candidateArr = [];
+                for (let i = 0; i < PEOPLE_SIZE; i++) {
+                    if((teamPosition[i][k] == 'Y' && teamPosition[i][k+1] == 'Y')
+                        && (teamPosition[i][k-1] == 'Y' || teamPosition[i][k-1] == 'N') && (teamPosition[i][k+2] == 'Y' || teamPosition[i][k+2] == 'N')){ //30분+30분=1시간이 비는 사람
+                        candidate += i + ";";
+                        candidateCnt++;
+                    }
+                }
+                if (candidateCnt > 1) {
+                    candidate = candidate.substr(0, candidate.length - 1);
+                } else {
+                    exceptionMsgHTML += "<li>피팅룸 12:00~20:00에 1시간 전후 피팅룸/엠포스 근무가 없었던 팀원이 존재하지 않아 일단 가능한 인원으로 채웠습니다.</li>";
+                    for (let i = 0; i < PEOPLE_SIZE; i++) {
+                        if(teamPosition[i][k] == 'Y' && teamPosition[i][k+1] == 'Y'){ //30분+30분=1시간이 비는 사람
+                            candidate += i + ";";
+                            candidateCnt++;
+                        }
+                    }
+                    if (candidateCnt > 1) {
+                        candidate = candidate.substr(0, candidate.length - 1);
+                    }
+                    else{
+                        ERROR_MSG = "[ERROR] 피팅룸 점심조 일부 근무가능자 없음";
+                        return false;
+                    }
+                }
+                candidateArr = candidate.split(";");
+                shuffle(candidateArr);
+
+                console.log("[DEBUG] 피팅룸 " + k + "번째 타임블록 당첨자 -> " + candidateArr[0] + ", " + candidateArr[1]);
+                for (let j = k; j < k+2; j++) { //타임블록 1~4까지 동시계산 필요
+                    if(teamPosition[candidateArr[0]][j] == 'Y')
+                        teamPosition[candidateArr[0]][j] = "피팅룸";   //1명색출
+                    if(teamPosition[candidateArr[1]][j] == 'Y')
+                        teamPosition[candidateArr[1]][j] = "피팅룸";   //2명색출
+
+                }
+            }
+            //10:30 0
+            //11:30 2
+            //12:30 4
+            //13:30 6
+            //14:30 8
+            //15:30 10
+            //16:30 12
+            //17:30 14
+            //18:30 16
+            //19:30 18
+            //20:30 20
+            //21:30 22
+
+
+
+            /*
+             *  엠포스결제 - 남성의류 차출자
+             */
+            //10:30, 11:00, 11:30, 12:00 고정파트 계산, 1명
+            /*
+            candidate = "";
+            candidateCnt = 0;
+            candidateArr = [];
+            for (let i = 0; i < PEOPLE_SIZE; i++) {
+                if(EXCEPTION_MAN[i] == true && teamPosition[i][0] == 'Y' && teamPosition[i][1] == 'Y' && teamPosition[i][2] == 'Y'){
+                    candidate += i + ";";
+                    candidateCnt++;
+                }
+            }
+            if (candidateCnt > 0) {
+                candidate = candidate.substr(0, candidate.length - 1);
+            } else {
+                alert("[ERROR] 엠포스결제 - 남성의류 10:30~12:00 근무가능 팀원이 없습니다.");
+                return;
+            }
+            candidateArr = candidate.split(";");
+            shuffle(candidateArr);
+            let ran = Math.floor(Math.random() * candidate.length);
+
+            //1명색출
+            teamPosition[candidateArr[ran]][0] = "엠포스"
+            teamPosition[candidateArr[ran]][1] = "엠포스"
+            teamPosition[candidateArr[ran]][2] = "엠포스"
+            */
+
+            //20:00, 20:30, 21:00 고정파트 계산, 1명
+            /*
+            candidate = "";
+            candidateCnt = 0;
+            candidateArr = [];
+            for (let i = 0; i < PEOPLE_SIZE; i++) {
+                if(EXCEPTION_MAN[i] == true && teamPosition[i][19] == 'Y' && (teamPosition[i][18] == 'Y' || teamPosition[i][18] == 'N') && teamPosition[i][20] == 'Y' && teamPosition[i][21] == 'Y'){ //21시~21시30분까지 근무중인 사람들 대상
+                    candidate += i + ";";
+                    candidateCnt++;
+                }
+            }
+            if (candidateCnt > 0) {
+                candidate = candidate.substr(0, candidate.length - 1);
+                candidateArr = candidate.split(";");
+                shuffle(candidateArr);
+
+                teamPosition[candidateArr[0]][19] = "엠포스";
+                teamPosition[candidateArr[0]][20] = "엠포스";
+                teamPosition[candidateArr[0]][21] = "엠포스";
+                teamPosition[candidateArr[0]][22] = "엠포스";
+
+            } else {
+                alert("[ERROR] 엠포스결제 - 남성의류 20:00~21:30 근무가능 팀원이 없습니다.");
+                return;
+            }
+            */
+
+            //12:00(4) ~ 20:00(19), 2명
+            for(let k = 3; k < 19; k=k+2){
+                candidate = "";
+                candidateCnt = 0;
+                candidateArr = [];
+                for (let i = 0; i < PEOPLE_SIZE; i++) {
+                    if(EXCEPTION_MAN[i] == true && teamPosition[i][k] == 'Y' && teamPosition[i][k+1] == 'Y'
+                        && (teamPosition[i][k-1] == 'Y' || teamPosition[i][k-1] == 'N') && (teamPosition[i][k+2] == 'Y' || teamPosition[i][k+2] == 'N')){ //30분+30분=1시간이 비는 사람
+                        candidate += i + ";";
+                        candidateCnt++;
+                    }
+                }
+
+                if (candidateCnt > 0) {
+                    candidate = candidate.substr(0, candidate.length - 1);
+                }
+                else{
+                    exceptionMsgHTML += "<li>엠포스-남성의류 12:00~20:00에 1시간 전후 피팅룸/엠포스 근무가 없었던 팀원이 존재하지 않아 일단 가능한 인원으로 채웠습니다.</li>";
+
+                    for (let i = 0; i < PEOPLE_SIZE; i++) {
+                        if(EXCEPTION_MAN[i] == true && teamPosition[i][k] == 'Y' && teamPosition[i][k+1] == 'Y'){ //30분+30분=1시간이 비는 사람
+                            candidate += i + ";";
+                            candidateCnt++;
+                        }
+                    }
+                    if (candidateCnt > 0) {
+                        candidate = candidate.substr(0, candidate.length - 1);
+                    }
+                    else{
+                        ERROR_MSG = "[ERROR] 엠포스-남성의류 점심조 일부 근무가능자 없음";
+                        return false;
+                    }
+                }
+                candidateArr = candidate.split(";");
+                shuffle(candidateArr);
+                teamPosition[candidateArr[0]][k * 1] = "엠포스";
+                teamPosition[candidateArr[0]][k * 1 + 1] = "엠포스";
+
+            }
+
+
+
+
+            /*
+             *  엠포스결제 - 여성의류 차출자
+             */
+            //10:30, 11:00, 11:30, 12:00 고정파트 계산, 1명
+            /*
+            candidate = "";
+            candidateCnt = 0;
+            candidateArr = [];
+            for (let i = 0; i < PEOPLE_SIZE; i++) {
+                if(EXCEPTION_WOMAN[i] == true && teamPosition[i][0] == 'Y' && teamPosition[i][1] == 'Y' && teamPosition[i][2] == 'Y'){
+                    candidate += i + ";";
+                    candidateCnt++;
+                }
+            }
+            if (candidateCnt > 0) {
+                candidate = candidate.substr(0, candidate.length - 1);
+            } else {
+                alert("[ERROR] 엠포스결제 - 여성의류 10:30~12:00 근무가능 팀원이 없습니다.");
+                return;
+            }
+            candidateArr = candidate.split(";");
+            shuffle(candidateArr);
+
+            //1명색출
+            teamPosition[candidateArr[0]][0] = "엠포스";
+            teamPosition[candidateArr[0]][1] = "엠포스";
+            teamPosition[candidateArr[0]][2] = "엠포스";
+            */
+
+
+            //20:00, 20:30, 21:00 고정파트 계산, 1명
+            /*
+            candidate = "";
+            candidateCnt = 0;
+            candidateArr = [];
+            for (let i = 0; i < PEOPLE_SIZE; i++) {
+                if(EXCEPTION_WOMAN[i] == true && teamPosition[i][19] == 'Y' && teamPosition[i][20] == 'Y' && teamPosition[i][21] == 'Y' && (teamPosition[i][18] == 'Y' || teamPosition[i][18] == 'N')){ //21시~21시30분까지 근무중인 사람들 대상
+                    candidate += i + ";";
+                    candidateCnt++;
+                }
+            }
+            if (candidateCnt > 0) {
+                candidate = candidate.substr(0, candidate.length - 1);
+                candidateArr = candidate.split(";");
+                shuffle(candidateArr);
+
+                //1명색출
+                    teamPosition[candidateArr[0]][19] = "엠포스";
+                    teamPosition[candidateArr[0]][20] = "엠포스";
+                    teamPosition[candidateArr[0]][21] = "엠포스";
+                    teamPosition[candidateArr[0]][22] = "엠포스";
+            } else {
+                alert("[ERROR] 엠포스결제 - 여성의류 20:00~21:30 근무가능 팀원이 없습니다.");
+                return;
+            }
+            */
+
+            //12:00(4) ~ 20:00(19), 2명
+            for(let k = 3; k < 19; k=k+2){
+                candidate = "";
+                candidateCnt = 0;
+                candidateArr = [];
+                for (let i = 0; i < PEOPLE_SIZE; i++) {
+                    if(EXCEPTION_WOMAN[i] == true && (teamPosition[i][k+2] == 'Y' || teamPosition[i][k+2] == 'N') && (teamPosition[i][k-1] == 'Y' || teamPosition[i][k-1] == 'N') && teamPosition[i][k] == 'Y' && teamPosition[i][k+1] == 'Y'){ //30분+30분=1시간이 비는 사람
+                        candidate += i + ";";
+                        candidateCnt++;
+                    }
+                }
+
+                if (candidateCnt > 0) {
+                    shuffle(candidateArr);
+                    candidate = candidate.substr(0, candidate.length - 1);
+                    candidateArr = candidate.split(";");
+
+                    teamPosition[candidateArr[0]][k * 1] = "엠포스";
+                    teamPosition[candidateArr[0]][k * 1 + 1] = "엠포스";
+                }
+                else{
+                    exceptionMsgHTML += "<li>엠포스-여성의류 12:00~20:00에 1시간 전후 피팅룸/엠포스 근무가 없었던 팀원이 존재하지 않아 일단 가능한 인원으로 채웠습니다.</li>";
+
+                    for (let i = 0; i < PEOPLE_SIZE; i++) {
+                        if(EXCEPTION_WOMAN[i] == true && teamPosition[i][k] == 'Y' && teamPosition[i][k+1] == 'Y'){ //30분+30분=1시간이 비는 사람
+                            candidate += i + ";";
+                            candidateCnt++;
+                        }
+                    }
+                    if (candidateCnt > 0) {
+                        shuffle(candidateArr);
+                        candidate = candidate.substr(0, candidate.length - 1);
+                        candidateArr = candidate.split(";");
+
+                        teamPosition[candidateArr[0]][k * 1] = "엠포스";
+                        teamPosition[candidateArr[0]][k * 1 + 1] = "엠포스";
+                    }
+                    else{
+                        ERROR_MSG = "[ERROR] 엠포스-여성의류 점심조 일부 근무가능자 없음";
+                        return false;
+                    }
+                    //alert("[ERROR] 엠포스결제 - 여성의류 12:00~20:00 근무가능 팀원이 없습니다.");
+                    //return;
+                }
+
+            }
+
+
+            drawTable(teamPosition, exceptionMsgHTML);
+
+            return true;
+        }
+
+        let personTimeOKButton = document.getElementById('personTimeOK');
+        personTimeOKButton.addEventListener('click', function(event) {// click 이벤트 발생시, 두번째 인자의 함수가 실행된다.
+            for(let i = 0; i < PEOPLE_SIZE; i++){
+                if(EXCEPTION_MAN[i] == false && EXCEPTION_WOMAN[i] == false && document.getElementsByName("person1Name")[i].value != ''){
+                    alert((i + 1) + "번 팀원의 남성의류, 여성의류를 설정해주세요");
+                    return;
+                }
+            }
+
+            for(let i = 0; i < ALTORITHM_DEPTH; i++){
+                if(calculCore()){
+                    ALTORITHM_CNT = 0;
+                    break;
+                }
+                else{
+                    ALTORITHM_CNT++;
+                }
+            }
+            if(ALTORITHM_CNT > ALTORITHM_DEPTH - 1){
+                alert(ERROR_MSG);
+            }
+        });
+
+        function drawTable(teamPosition, exceptionMsgHTML){
+            let cntFittingroom = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let cntMan =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let cntWoman =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            let cntPos =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+            let resultHTML = "<hr><br><br><table class='table table-bordered' id='resultMatch' width='100%' cellspacing='0'>";
+            resultHTML += "<thead>";
+            resultHTML += "<tr>";
+            resultHTML += "<th>이름</th>";
+            resultHTML += "<th>10:30</th>";
+            resultHTML += "<th>11:00</th>";
+            resultHTML += "<th>11:30</th>";
+            resultHTML += "<th>12:00</th>";
+            resultHTML += "<th>12:30</th>";
+            resultHTML += "<th>13:00</th>";
+            resultHTML += "<th>13:30</th>";
+            resultHTML += "<th>14:00</th>";
+            resultHTML += "<th>14:30</th>";
+            resultHTML += "<th>15:00</th>";
+            resultHTML += "<th>15:30</th>";
+            resultHTML += "<th>16:00</th>";
+            resultHTML += "<th>16:30</th>";
+            resultHTML += "<th>17:00</th>";
+            resultHTML += "<th>17:30</th>";
+            resultHTML += "<th>18:00</th>";
+            resultHTML += "<th>18:30</th>";
+            resultHTML += "<th>19:00</th>";
+            resultHTML += "<th>19:30</th>";
+            resultHTML += "<th>20:00</th>";
+            resultHTML += "<th>20:30</th>";
+            resultHTML += "<th>21:00</th>";
+            resultHTML += "<th>21:30</th>";
+            resultHTML += "</tr>";
+            resultHTML += "</thead>";
+            resultHTML += "<tbody>";
+
+            for(let i = 0; i < PEOPLE_SIZE; i++){
+                resultHTML += "<tr>";
+                resultHTML += "<td style='height:70px;'>" + document.getElementsByName("person1Name")[i].value + "</td>";
+                for(let j = 0; j < TIME_SIZE; j++){
+                    let color = "";
+                    let position = "남성의류";
+                    if(EXCEPTION_MAN[i] == true){
+                        color = "#95D2FA";
+                    }
+                    else{
+                        color = "#F86B6D";
+                        position = "여성의류";
+                    }
+                    if(teamPosition[i][j].indexOf("피팅룸") !== -1 ) {
+                        cntFittingroom[j]++;
+                        resultHTML += "<td style='background-color: #F6EC80'>" + teamPosition[i][j] + "</td>";
+                    }
+                    else if(teamPosition[i][j].indexOf("엠포스") !== -1 ){
+                        cntPos[j]++;
+                        resultHTML += "<td style='background-color: #75FA7E'>" + teamPosition[i][j] + "</td>";
+                    }
+                    else if(teamPosition[i][j] != "N" ) {
+                        resultHTML += "<td style='background-color: " + color + "'>" + position + "</td>";
+                    }
+                    else{
+                        resultHTML += "<td style='background-color: #A9A8A6'></td>";
+                    }
+                }
+                resultHTML += "</tr>";
+            }
+
+
+            resultHTML += "<tr>";
+            resultHTML += "<td style='height: 70px;'>피팅룸 할당수</td>";
+            for(let i = 0; i < TIME_SIZE; i++){
+                resultHTML += "<td>" + cntFittingroom[i] + "</td>";
+            }
+            resultHTML += "</tr>";
+
+            /*
+            resultHTML += "<tr>";
+            resultHTML += "<td style='height: 70px;'>남자의류 할당수</td>";
+            for(let i = 0; i < TIME_SIZE; i++){
+                resultHTML += "<td>" + cntMan[i] + "</td>";
+            }
+            resultHTML += "</tr>";
+
+            resultHTML += "<tr>";
+            resultHTML += "<td style='height: 70px;'>여성의류 할당수</td>";
+            for(let i = 0; i < TIME_SIZE; i++){
+                resultHTML += "<td>" + cntWoman[i] + "</td>";
+            }
+            resultHTML += "</tr>";
+            */
+
+            resultHTML += "<tr>";
+            resultHTML += "<td style='height: 70px;'>엠포스결제 할당수</td>";
+            for(let i = 0; i < TIME_SIZE; i++){
+                resultHTML += "<td>" + cntPos[i] + "</td>";
+            }
+            resultHTML += "</tr>";
+
+            resultHTML += "</tbody>";
+            resultHTML += "</table>";
+
+            if(exceptionMsgHTML == ""){
+                exceptionMsgHTML = "없음.";
+            }
+
+            document.getElementById("resultTable").innerHTML = resultHTML;
+            document.getElementById("resultException").innerHTML = "<h4>배치 중 특이사항</h4><ul>" + exceptionMsgHTML + "</ul>";
+
+        }
+
+
+
+
+        var timeNode = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        timeNode[0] = 1;//10시반부터 1시간단위 9시
+
+        var position = [];
+        position['남성의류'] = 0;
+        position['여성의류'] = 0;
+        position['피팅룸'] = 2;
+        position['엠포스결제'] = 0;
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+</html>
